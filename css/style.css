@@ -30,7 +30,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    display: none;
+    display: block;
 }
 .single-image.active {
     display: block;

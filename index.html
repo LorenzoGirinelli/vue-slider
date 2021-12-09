@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 <body>
 
@@ -17,30 +20,36 @@
             <!-- Big Image container -->
             <div class="big-images-container">
                 <!-- Single image container -->
-                <!-- <div class="single-image active">
-                    <img src="img/01.jpg" alt="">
+                <div class="single-image">
+                    <img src="slides[currentActiveSlide].image" alt="slides[currentActiveSlide]">
 
                     <div class="single-image-text">
                         <h3>Titolo</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, minus. Dolore tempore vitae quisquam ea amet. Laborum sequi itaque saepe eaque quae praesentium, quam officia, architecto, voluptatibus iste unde illo.</p>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <!-- Thumbs -->
             <div class="thumbs">
                 <!-- Arrow up -->
-                <div class="arrow up">
+                <div @click="showPrevSlide" class="arrow up">
                     <i class="fas fa-chevron-up"></i>
                 </div>
                 <!-- End Arrow up -->
 
                 <!-- Arrow down -->
-                <div class="arrow down">
+                <div @click="showNextSlide" class="arrow down">
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <!-- End Arrow down -->
-
+                <div
+                    @click="changeCurrentSlideTo(index)"
+                    v-for="(slide, index) in slides" 
+                    class="single-thumb" 
+                    :class="{active: index === currentActiveSlide}">
+                     <img src="slides.image" alt="slide.title">
+                </div>
                 <!-- <div class="single-thumb active">
                     <img src="img/01.jpg" alt="">
                 </div> -->
